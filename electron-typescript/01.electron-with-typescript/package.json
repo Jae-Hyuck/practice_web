@@ -1,0 +1,19 @@
+{
+  "name": "01.electron-with-typescript",
+  "version": "1.0.0",
+  "description": "",
+  "main": "output/index.js",
+  "scripts": {
+    "transpile": "tsc",
+    "transpile:watch": "tsc --watch",
+    "start": "electron ."
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "electron": "^6.0.8",
+    "tslint": "^5.20.0",
+    "typescript": "^3.6.2"
+  }
+}

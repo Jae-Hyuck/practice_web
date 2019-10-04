@@ -1,0 +1,1 @@
+### "타입스크립트 코리아 : Electron with TypeScript Hands-On Labs 세미나"에서 작성한 예제 코드
