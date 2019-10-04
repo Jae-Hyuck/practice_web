@@ -1,0 +1,69 @@
+<!-- electron에서 dialog는 총 4가지.. 4가지 모두 다루어본다. -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+</head>
+<body>
+    <button id="btn_open">open</button>
+    <button id="btn_save">save</button>
+    <button id="btn_message">message</button>
+    <button id="btn_error">error</button>
+
+    <script>
+        const {dialog} = require('electron').remote;
+
+        /* 파일을 여는 dialog */
+        const btnOpen = document.querySelector('#btn_open');
+        btnOpen.addEventListener('click', () => {
+            dialog.showOpenDialog({  // File 선택하는 dialog
+                filters: [  // 보이는 file의 종류를 제한한다.
+                    {name: 'Images', extensions: ['jpg', 'png']}
+                ],
+                properties: [
+                    'multiSelections'  // 여러개의 파일 선택가능하도록
+                ]
+            }, (filepaths) => {    // 선택한 파일 path들이 배열로 들어온다.
+                console.log(filepaths); 
+            });
+        });
+
+        /* 파일을 저장하는 dialog */
+        const btnSave = document.querySelector('#btn_save');
+        btnSave.addEventListener('click', () => {
+            dialog.showSaveDialog({
+                title: 'DialogTitleBlaBla',  // Dialog 창의 title 설정
+                filters: [
+                    {name: 'Images', extensions: ['jpg']}
+                ]
+            }, (filename) => {
+                console.log(filename);
+            });
+        });
+
+        /* 메시지 dialog */
+        const btnMessage = document.querySelector('#btn_message');
+        btnMessage.addEventListener('click', () => {
+            dialog.showMessageBox({
+                message: '메세지입니다.',
+                detail: '디테일입니다.',
+                buttons: [
+                    'First',
+                    'Second'
+                ],
+                checkboxLabel: '체크박스',
+                checkboxChecked: true
+            }, (index, checkboxChecked) => {  // 각 button이 눌렸을 때의 콜백. 각각의 index가 들어온다., 그리고 checkbox의 상태도 들어온다.
+                console.log(index, checkboxChecked);
+            });
+        });
+
+        /* 에러 dialog */
+        const btnError = document.querySelector('#btn_error');
+        btnError.addEventListener('click', () => {
+            dialog.showErrorBox('제목', '내용');
+        });
+    </script>
+</body>
+</html>

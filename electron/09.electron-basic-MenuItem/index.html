@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+</head>
+<body>
+    <h2>electron-basic-MenuItem</h2>
+
+    <script>
+        const {Menu, MenuItem, BrowserWindow} = require('electron').remote;
+
+        const menu = new Menu();  // template 안쓰고, MenuItem으로 하나씩 집어넣기
+
+        const menuItem1 = new MenuItem({
+            label: 'MenuItem1',
+            click: () => {
+                console.log('MenuItem1 click');
+            }
+        });
+
+        const menuItem2 = new MenuItem({
+            label: 'MenuItem2',
+            type: 'checkbox',
+            checked: true
+        });
+
+        menu.append(menuItem1);
+        menu.append(menuItem2);
+
+        const separator = new MenuItem({
+            type: 'separator'
+        });
+        menu.insert(1, separator);
+
+        // 우클릭 할때 이벤트 발생
+        window.addEventListener('contextmenu', e => {
+            console.log('contextmenu');
+            e.preventDefault();
+            menu.popup(BrowserWindow.getFocusedWindow());
+        });
+    </script>
+</body>
+</html>

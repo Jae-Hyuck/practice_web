@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+</head>
+<body>
+    <button id="btn_win_id">win.id</button>
+    <button id="btn_open_browser">open browser</button>
+
+    <!-- remote 모듈을 통해 main 프로세스의 모듈을 가져오는 방식을 사용할 수도 있겠지만, 
+        여기에선 remote 모듈의 함수를 이용해 window의 id를 가져온다. 
+        main process에서 프린트한 win id와 remote process에서 프린트한 win id가 같음을 확인 할 수 있다.
+    -->
+    <script>
+        const {remote} = require('electron');
+
+        const btnWinID = document.querySelector('#btn_win_id');
+        btnWinID.addEventListener('click', () => {
+            const win = remote.getCurrentWindow();
+            console.log(win.id);
+        });
+    </script>
+
+    <!-- shell 모듈은 electron 이외의 프로그램을 실행할 때 사용 -->
+    <!-- renderer process 뿐만 아니라 main process에서도 사용 가능 -->
+    <script>
+        const {shell} = require('electron');
+
+        const btnOpenBrowser = document.querySelector('#btn_open_browser');
+        btnOpenBrowser.addEventListener('click', () => {
+            shell.openExternal('https://github.com');  // 컴퓨터에 설정된 default browser 실행됨.
+        });
+    </script>
+
+    
+</body>
+</html>

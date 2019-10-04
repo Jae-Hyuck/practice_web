@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+</head>
+<body>
+    <button id="btn_send_async">send async</button>
+    <button id="btn_send_sync">send sync</button>
+
+    <script>
+        const {ipcRenderer} = require('electron');  // ipcRenderer모듈은 renderer process에서 바로 가져다 쓸수 있는 것이기 때문에, remote에서 가져오지 않음을 볼 수 있다.
+
+        const btnSendAsync = document.querySelector('#btn_send_async');
+        const btnSendSync = document.querySelector('#btn_send_sync');
+
+        // 비동기 메세지 전송. 메세지는 string 뿐아니라 object 보낼 수도 있다.
+        btnSendAsync.addEventListener('click', () => {
+            console.log('btnSendAsync');
+            ipcRenderer.send('send_async_channel', '이것은 랜더러프로세스에서 보낸 비동기 메세지입니다.');
+        });
+
+        // 동기 메세지 전송 및 리턴 받아서 처리.
+        btnSendSync.addEventListener('click', () => {
+            console.log('btnSendSync');
+            const reply = ipcRenderer.sendSync('send_sync_channel', '이것은 랜더러프로세스에서 보낸 동기 메세지입니다.');
+            console.log(reply);
+        });
+
+        // 비동기 메세지 수신.
+        ipcRenderer.on('reply_async_channel', (event, message) => {
+            console.log(message);
+        });
+
+    </script>
+    
+</body>
+</html>

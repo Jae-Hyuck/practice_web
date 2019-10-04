@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <style>
+            body {
+                width: 100%;
+                height: 100%;
+                background-color: chocolate;
+            }
+
+            h2 {
+                background-color: darkgreen;
+                -webkit-app-region: drag;      /* frameless 브라우저는 기본적으로 브라우저를 못움직이므로, 특정 영역을 드래그하여 브라우저 움직일 수 있도록 함. */
+                -webkit-user-select: none;     /* 드래그 영역에 글자 선택 되지 않도록 한다. */
+            }
+        </style>
+    </head>
+    <body>
+        <h2>electron-basic-BrowserWindow-Frameless</h2>
+    </body>
+</html>

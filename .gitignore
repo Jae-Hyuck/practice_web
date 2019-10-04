@@ -1,3 +1,6 @@
+*lock.json
+output/
+
 # Logs
 logs
 *.log

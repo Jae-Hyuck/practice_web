@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+</head>
+<body>
+    <button id="btn_current">current</button>
+    <button id="btn_all">all</button>
+
+    <script>
+        const {remote} = require('electron');
+        const {BrowserWindow} = remote;
+
+        const btnCurrent = document.querySelector('#btn_current');
+        const btnAll = document.querySelector('#btn_all');
+
+        btnCurrent.addEventListener('click', () => {
+            const current = BrowserWindow.getFocusedWindow();
+            alert(current.id);
+        });
+        btnAll.addEventListener('click', () => {
+            const all = BrowserWindow.getAllWindows(); // 배열로 리턴됨.
+            const ids = all.map(win => win.id);  // 배열에서 id값만 추출
+            alert(ids);
+        });
+    </script>
+</body>
+</html>
