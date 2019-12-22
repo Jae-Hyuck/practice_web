@@ -5,7 +5,7 @@
 1. firebase 콘솔의 Database 탭에서 Database 하나 추가.
 1. npm i firebase -S
 1. firebase 콘솔의 Overview에서 웹 앱을 위한 code snippet 중에서 일부를 복사해서, index.js에 firebase를 초기화하는데 사용한다.
-1. 에러가 발생하면 npm rebuild --runtime=electron --target=6.0.8 를 실행시킨다.  (https://stackoverflow.com/questions/52156883/error-with-firebase-on-electron-app-failed-to-load-grpc)
+1. 에러가 발생하면 npm rebuild --target=7.1.7 --runtime=electron --dist-url=https://atom.io/download/electron 를 실행시킨다.  (https://stackoverflow.com/questions/52156883/error-with-firebase-on-electron-app-failed-to-load-grpc) (https://www.npmjs.com/package/grpc#about-electron)
 
 ### 참고: 단일 파이어베이스 프로젝트 사용시 initialize
 

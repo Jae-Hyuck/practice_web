@@ -2,7 +2,7 @@
   "name": "01.electron-with-typescript",
   "version": "1.0.0",
   "description": "",
-  "main": "output/index.js",
+  "main": "output/browser/index.js",
   "scripts": {
     "transpile": "tsc",
     "transpile:watch": "tsc --watch",
@@ -17,6 +17,8 @@
     "typescript": "^3.6.2"
   },
   "dependencies": {
+    "@fortawesome/fontawesome-free": "^5.12.0",
+    "bulma": "^0.8.0",
     "firebase": "^7.6.1"
   }
 }

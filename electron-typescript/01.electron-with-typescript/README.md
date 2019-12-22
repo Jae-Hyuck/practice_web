@@ -22,4 +22,4 @@
 
 ### 참고
 
-- tsconfig.json에서 src폴더를 따로 input으로 생략해도 상관없는 이유는? 어차피 node_modules 폴더와 outDir로 지정된 폴더는 default로 제외되고, 현재 transpile 될 수 있는 건 src 폴더 밖에 없음.
+- tsconfig.json에서 src폴더를 따로 input으로 지정하지 않고 생략해도 상관없는 이유는? 어차피 node_modules 폴더와 outDir로 지정된 폴더는 default로 제외되고, 현재 transpile 될 수 있는 건 src 폴더 밖에 없음.
