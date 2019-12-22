@@ -10,3 +10,7 @@
 1. renderer 프로세스는 login-success를 답장 받으면 loginSection을 숨기고, chatSection과 writeSection을 보이도록 한다.
 1. 로그아웃도 같은 방식으로 처리한다. (logout 버튼은 창을 옆으로 쭉 늘리면 보인다.)
 
+### Bluma 관련
+
+fontawesome 직접 깔아서 가져오니까 icon이 잘 안떠서, fontawesome 지우고, 그냥 bulma에서 제시한 대로 "<script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>" 를 추가하였다.
+
